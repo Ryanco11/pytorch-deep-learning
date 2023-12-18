@@ -130,3 +130,15 @@ print(tensor - 10)
 
 # pytorch in-built functions
 print(torch.mul(tensor, 10))
+
+
+
+
+# Matrix multiplication (dot product) [https://www.mathsisfun.com/algebra/matrix-multiplying.html]
+
+print(tensor)
+# tensor([1, 2, 3])
+print(tensor * tensor)
+# tensor([1, 4, 9])
+print(torch.matmul(tensor, tensor))
+# tensor(14)

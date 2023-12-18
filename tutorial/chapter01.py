@@ -32,3 +32,16 @@ print(torch.__version__)
 # 1. get data into a numberical representation
 # 2. Build a model to learn patters in that numerical representation
 
+weight = 0.7
+bias = 0.3
+
+start = 0
+end = 1
+step = 0.02
+X = torch.arange(start, end, step).unsqueeze(dim=1) # unsqueeze : add extra dimensions
+y = weight * X + bias
+
+print(X[:10])
+print(y[:10])
+print(X[:])
+print(y[:])

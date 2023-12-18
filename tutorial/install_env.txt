@@ -1,0 +1,25 @@
+activate lovemachine
+
+conda install cudatoolkit -c anaconda -y  #this cudatoolkit version seems the higher one, but conda install version must be th e official version(for now is 12.1) 
+nvidia-smi
+conda install pytorch-cuda=12.1 -c pytorch -c nvidia -y
+conda install pytorch torchvision torchaudio -c pytorch -c nvidia -y
+
+python
+import torch
+torch.cuda.is_available()
+
+
+>>> import torch
+>>> import numpy
+>>> a = numpy.random.randn(5)
+>>> a
+array([-0.56878055,  0.21186632, -0.3420282 ,  0.70504646, -0.17722926])
+>>> torch.from_numpy(a)
+tensor([-0.5688,  0.2119, -0.3420,  0.7050, -0.1772], dtype=torch.float64)
+>>> b = torch.from_numpy(a)
+>>> b.to('cuda')
+>>> c = b.to('cuda')
+>>> c
+tensor([-0.5688,  0.2119, -0.3420,  0.7050, -0.1772], device='cuda:0',
+       dtype=torch.float64)

@@ -68,5 +68,17 @@ ones = torch.ones(size=(3, 4))
 print(ones)
 
 
+# tensot data type
 print(ones.dtype)
 print(random_tensor.dtype)
+
+
+
+# create a range of tensors and tensors-like
+one_to_ten = torch.arange(0, 10)
+print(one_to_ten)
+print(torch.arange(start = 0, end = 1000, step = 50))
+
+# create tensors-like
+ten_zeros = torch.zeros_like(input=one_to_ten)
+print(ten_zeros)

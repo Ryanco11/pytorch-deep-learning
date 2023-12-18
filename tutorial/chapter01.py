@@ -18,3 +18,17 @@ import matplotlib.pyplot as plt
 print(torch.__version__)
 
 
+
+# 1\ Data (prepare and loading)
+
+# Excel
+# image
+# video
+# video
+# DNA
+# Text
+
+# Machine Learning is a game of two parts
+# 1. get data into a numberical representation
+# 2. Build a model to learn patters in that numerical representation
+

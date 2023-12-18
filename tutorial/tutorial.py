@@ -97,3 +97,9 @@ float_32_tensor = torch.tensor([3.0, 6.0, 9.0],
 print(float_32_tensor.dtype)
 float_16_tensor = float_32_tensor.type(torch.float16)
 print(float_16_tensor.dtype)
+
+
+
+# int tensor
+int_32_tensor = torch.tensor([3, 6, 9], dtype=torch.long)
+print(int_32_tensor * float_32_tensor)

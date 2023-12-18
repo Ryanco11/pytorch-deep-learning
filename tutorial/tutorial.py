@@ -114,3 +114,19 @@ some_tensor = torch.rand(3, 4)
 print(some_tensor.dtype)
 print(some_tensor.shape)
 print(some_tensor.device)
+
+
+
+# manipulating tensor (tensor operations)
+# Addition
+# Subtraction
+# Multiplication (element-wise)
+# Division
+# Matrix multiplication
+tensor = torch.tensor([1, 2, 3])
+print(tensor + 10)
+print(tensor * 10)
+print(tensor - 10)
+
+# pytorch in-built functions
+print(torch.mul(tensor, 10))

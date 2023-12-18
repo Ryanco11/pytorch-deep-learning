@@ -48,3 +48,15 @@ print(TENSOR[0])
 # tensor([[1, 2, 3],
         # [3, 6, 9],
         # [2, 4, 5]])
+
+
+
+# create random tensor
+
+random_tensor = torch.rand(3, 4)
+print(random_tensor)
+print(random_tensor.ndim)
+
+random_tensor = torch.rand(10, 10, 10)
+print(random_tensor)
+

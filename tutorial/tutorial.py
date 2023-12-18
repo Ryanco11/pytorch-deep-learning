@@ -52,7 +52,6 @@ print(TENSOR[0])
 
 
 # create random tensor
-
 random_tensor = torch.rand(3, 4)
 print(random_tensor)
 print(random_tensor.ndim)
@@ -62,10 +61,12 @@ print(random_tensor)
 
 
 # create zeros and ones tensor
-
 zeros = torch.zeros(size=(3, 4))
 print(zeros)
 
 ones = torch.ones(size=(3, 4))
 print(ones)
 
+
+print(ones.dtype)
+print(random_tensor.dtype)

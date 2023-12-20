@@ -157,7 +157,7 @@ optimizer = torch.optim.SGD(params=model_0.parameters(),
 
 
 
-epochs = 10000    # An epoch is one loop through the data
+epochs = 1000    # An epoch is one loop through the data
 
 print(model_0.state_dict())
 
@@ -170,7 +170,7 @@ for epoch in range(epochs):
 
     # 2 Calculate the loss
     loss = loss_fn(y_pred, y_train)
-    print(f"Loss :{loss}")
+    # print(f"Loss :{loss}")
 
     # 3 optimizer zero grad
     optimizer.zero_grad()
@@ -185,12 +185,19 @@ for epoch in range(epochs):
     # Testing mode
     model_0.eval() # turns off gradient tracking
 
+    with torch.inference_mode():
+        test_pred = model_0(X_test)
+        test_loss = loss_fn(test_pred, y_test)
+        
+    if epoch % 10 == 0:
+        print(f"Epoch: {epoch} | Loss: {loss} | Test loss: {test_loss}")
 
-print(model_0.state_dict())
+
+    # print(model_0.state_dict())
 
 
 
 
-with torch.inference_mode():   ### turns off gradient tracking
-    y_preds = model_0(X_test)
-plot_prediction(predictions=y_preds)
+# with torch.inference_mode():   ### turns off gradient tracking
+#     y_preds = model_0(X_test)
+# plot_prediction(predictions=y_preds)

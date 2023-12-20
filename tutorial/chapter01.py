@@ -45,3 +45,15 @@ print(X[:10])
 print(y[:10])
 print(X[:])
 print(y[:])
+
+print(len(X))
+print(len(y))
+
+
+# Create a train/test split
+
+train_split = int(0.8 * len(X))
+X_train, y_train = X[:train_split], y[:train_split]
+X_test, y_test = X[train_split:], y[train_split:]
+
+print(X_train, y_train, X_test, y_test)

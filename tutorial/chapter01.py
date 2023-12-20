@@ -82,7 +82,7 @@ def plot_prediction(train_data=X_train,
     plt.legend(prop={"size":14})
     plt.show()
 
-plot_prediction()
+# plot_prediction()
 
 
 
@@ -113,4 +113,14 @@ class LinearRegressionModel(nn.Module):
 
 
 # PyTorch model building essentials
+
+
+# checking the content of our pytorch model
+
+torch.manual_seed(42)
+
+model_0 = LinearRegressionModel()
+print(list(model_0.parameters()))
+
+print(model_0.state_dict())
 

@@ -109,3 +109,8 @@ class LinearRegressionModel(nn.Module):
 
         def forward(self, x: torch.Tensor) -> torch.Tensor:
             return self.weights * x + self.bias
+
+
+
+# PyTorch model building essentials
+

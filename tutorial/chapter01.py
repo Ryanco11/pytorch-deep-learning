@@ -124,3 +124,23 @@ print(list(model_0.parameters()))
 
 print(model_0.state_dict())
 
+# Making prediction using 'torch.inference_mode()'
+
+
+
+#1
+# y_preds = model_0(X_test)
+
+#2
+with torch.inference_mode():   ### turns off gradient tracking
+    y_preds = model_0(X_test)
+
+#3 
+# with torch.no_grad():      # inference_mode is preferred
+#     y_preds = model_0(X_test)
+
+print(y_preds)
+
+plot_prediction(predictions=y_preds)
+
+

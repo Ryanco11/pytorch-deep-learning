@@ -75,7 +75,6 @@ def plot_prediction(train_data=X_train,
     plt.scatter(test_data, test_labels, c='g', s=4, label="Testing data")
 
     if predictions is not None:
-        print(1)
 
         plt.scatter(test_data, predictions, c='r', s=4, label='Predictions')
 
@@ -198,6 +197,6 @@ for epoch in range(epochs):
 
 
 
-# with torch.inference_mode():   ### turns off gradient tracking
-#     y_preds = model_0(X_test)
-# plot_prediction(predictions=y_preds)
+with torch.inference_mode():   ### turns off gradient tracking
+    y_preds = model_0(X_test)
+plot_prediction(predictions=y_preds)

@@ -107,8 +107,8 @@ class LinearRegressionModel(nn.Module):
                                             requires_grad=True,
                                             dtype=torch.float))
 
-        def forward(self, x: torch.Tensor) -> torch.Tensor:
-            return self.weights * x + self.bias
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        return self.weights * x + self.bias
 
 
 

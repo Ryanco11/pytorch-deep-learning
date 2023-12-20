@@ -205,7 +205,7 @@ for epoch in range(epochs):
 
 
 
-
+# plt pred dots 
 with torch.inference_mode():   ### turns off gradient tracking
     y_preds = model_0(X_test)
 plot_prediction(predictions=y_preds)

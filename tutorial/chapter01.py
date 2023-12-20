@@ -157,6 +157,7 @@ optimizer = torch.optim.SGD(params=model_0.parameters(),
 
 
 epochs = 1000    # An epoch is one loop through the data
+# epochs = 10000
 
 print(model_0.state_dict())
 

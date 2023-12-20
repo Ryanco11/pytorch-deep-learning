@@ -83,3 +83,29 @@ def plot_prediction(train_data=X_train,
     plt.show()
 
 plot_prediction()
+
+
+
+
+# first pytorch model
+
+# create linear regression model class
+
+# 1\ Gradient descent
+# 2\ Baclpropagation
+
+from torch import nn
+
+
+class LinearRegressionModel(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.weights = nn.Parameter(torch.randn(1,
+                                                requires_grad=True,
+                                                dtype=torch.float))
+        self.bias = nn.Parameter(torch.randn(1,
+                                            requires_grad=True,
+                                            dtype=torch.float))
+
+        def forward(self, x: torch.Tensor) -> torch.Tensor:
+            return self.weights * x + self.bias

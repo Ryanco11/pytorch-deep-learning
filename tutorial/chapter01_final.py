@@ -62,16 +62,10 @@ if __name__ == "__main__":
             # use nn.Linear() for creating model parameters
             self.linear_layer = nn.Linear(in_features=1,
                                          out_features=1)
-            # self.weights = nn.Parameter(torch.randn(1,
-            #                                     requires_grad=True,
-            #                                     dtype=torch.float))
-            # self.bias = nn.Parameter(torch.randn(1,
-            #                                     requires_grad=True,
-            #                                     dtype=torch.float))
             
         def forward(self, x: torch.Tensor) -> torch.Tensor:
             return self.linear_layer(x)
-            # return self.weights * x + self.bias
+            
     # 
     torch.manual_seed(42)
     model_1 = LinearRegressionModelV2()

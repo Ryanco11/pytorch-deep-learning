@@ -205,18 +205,57 @@ for epoch in range(epochs):
 
 
 
-# plt pred dots 
-with torch.inference_mode():   ### turns off gradient tracking
-    y_preds = model_0(X_test)
-plot_prediction(predictions=y_preds)
+### plt pred dots 
+# with torch.inference_mode():   ### turns off gradient tracking
+#     y_preds = model_0(X_test)
+# plot_prediction(predictions=y_preds)
 
 
-# plt loss curve 
-plt.plot(epoch_count, np.array(torch.tensor(train_loss_values).numpy()), label="Train Loss")
-plt.plot(epoch_count, test_loss_values, label="Test Loss")
+### plt loss curve 
+# plt.plot(epoch_count, np.array(torch.tensor(train_loss_values).numpy()), label="Train Loss")
+# plt.plot(epoch_count, test_loss_values, label="Test Loss")
 
-plt.title("Training and Testing loss curves")
-plt.ylabel("Loss")
-plt.xlabel("Epochs")
-plt.legend()
-plt.show()
+# plt.title("Training and Testing loss curves")
+# plt.ylabel("Loss")
+# plt.xlabel("Epochs")
+# plt.legend()
+# plt.show()
+
+
+
+
+### saving pytorch model
+
+# 1\ torch.save()
+# 2\ torch.load()
+# 3\ torch.nn.Module.load_state_dict()  - this allows to load a model's saved state dictionary
+import pathlib
+# from pathlib import Path
+
+# 1\ create path
+MODEL_PATH = pathlib.Path(pathlib.Path(__file__).parent.resolve()) / "models"
+MODEL_PATH .mkdir(parents=True, exist_ok=True)
+
+# 2\ create model save path
+MODEL_NAME = "chapter01_model_0.pth"
+MODEL_SAVE_PATH = MODEL_PATH /MODEL_NAME
+
+# 3\ save the model
+print(f"Saveing model to : {MODEL_SAVE_PATH}")
+torch.save(obj=model_0.state_dict(), f=MODEL_SAVE_PATH)
+print(f"Saved model to : {MODEL_SAVE_PATH}")
+
+
+
+
+### load the model
+
+# 1\ instantiate the instance
+loaded_model_0 = LinearRegressionModel()
+
+print(loaded_model_0.state_dict())
+# 2\ load state
+loaded_model_0.load_state_dict(torch.load(f=MODEL_SAVE_PATH))
+
+
+print(loaded_model_0.state_dict())

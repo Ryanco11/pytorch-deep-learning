@@ -40,7 +40,7 @@ if __name__ == "__main__":
     step = 0.02
 
     # create x and y 
-    X = torch.arange(start, end, step)
+    X = torch.arange(start, end, step).unsqueeze(dim=1) # without unsqueeze, errors will pop up
     y = weight * X + bias
     
     # split data
@@ -60,18 +60,18 @@ if __name__ == "__main__":
         def __init__(self):
             super().__init__()
             # use nn.Linear() for creating model parameters
-            # self.linear_layer = nn.Linear(in_features=1,
-            #                              out_features=1)
-            self.weights = nn.Parameter(torch.randn(1,
-                                                requires_grad=True,
-                                                dtype=torch.float))
-            self.bias = nn.Parameter(torch.randn(1,
-                                                requires_grad=True,
-                                                dtype=torch.float))
+            self.linear_layer = nn.Linear(in_features=1,
+                                         out_features=1)
+            # self.weights = nn.Parameter(torch.randn(1,
+            #                                     requires_grad=True,
+            #                                     dtype=torch.float))
+            # self.bias = nn.Parameter(torch.randn(1,
+            #                                     requires_grad=True,
+            #                                     dtype=torch.float))
             
         def forward(self, x: torch.Tensor) -> torch.Tensor:
-            # return self.linear_layer(x)
-            return self.weights * x + self.bias
+            return self.linear_layer(x)
+            # return self.weights * x + self.bias
     # 
     torch.manual_seed(42)
     model_1 = LinearRegressionModelV2()

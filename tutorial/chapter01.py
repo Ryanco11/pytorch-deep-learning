@@ -182,7 +182,7 @@ for epoch in range(epochs):
     optimizer.step()  # by default optimizer changes will acculumate through the loop so... we have to zero them above in step in step 3
 
 
-    # Testing
+    # Testing mode
     model_0.eval() # turns off gradient tracking
 
 

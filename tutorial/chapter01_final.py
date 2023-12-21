@@ -65,7 +65,7 @@ if __name__ == "__main__":
             
         def forward(self, x: torch.Tensor) -> torch.Tensor:
             return self.linear_layer(x)
-            
+
     # 
     torch.manual_seed(42)
     model_1 = LinearRegressionModelV2()
@@ -98,9 +98,7 @@ if __name__ == "__main__":
 
     # 3\ training loop
     for epoch in range(epochs):
-        print(1)
         model_1.train()
-        print(2)
         y_pred = model_1(X_train)
         loss = loss_fn(y_pred, y_train)
         optimizer.zero_grad()
@@ -110,12 +108,13 @@ if __name__ == "__main__":
         # 4\ testining loop
         model_1.eval()
         with torch.inference_mode():
-            print(3)
             test_pred = model_1(X_test)
-            print(4)
             test_loss = loss_fn(test_pred, y_test)
         
         if epoch % 10 == 0:
             print(f"Epoch: {epoch} | Liss: {loss} | Test loss: {test_loss}")
 
 
+
+
+    # turn model into evaluation mode

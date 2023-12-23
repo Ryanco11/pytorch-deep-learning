@@ -105,6 +105,26 @@ print(f"device: {device}")
 
 
 # construct a model
-
+class CircleModelV0(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.layer_1 = nn.Linear(in_features=2, out_features=5)
+        self.layer_2 = nn.Linear(in_features=5, out_features=1)
+    
+    def forward(self, x):
+        return self.layer_2(self.later_1(x)) # x-> layer_1 -> layer_2 -> output
+    
 # define a loss function and optimizer
+
+model_0 = CircleModelV0().to(device)
+print(model_0)
+# CircleModelV0(
+#   (layer_1): Linear(in_features=2, out_features=5, bias=True)
+#   (layer_2): Linear(in_features=5, out_features=1, bias=True)
+# )
+
+print(next(model_0.parameters()).device)
+# cuda:0
+
+
 # create a training and test loop

@@ -21,10 +21,17 @@ print(f"First 5 samples of X:\n {y[:5]}")
 
 
 # make dataframe of circle data
-
 import pandas as pd
 circles = pd.DataFrame({"X1":X[:, 0],
                         "X2":X[:, 1],
                         "label":y})
 print(circles.head(10))
 
+
+# visualize
+import matplotlib.pyplot as plt
+plt.scatter(x=X[:, 0],
+            y=X[:, 1],
+            c=y,
+            cmap=plt.cm.RdYlBu)
+plt.show()

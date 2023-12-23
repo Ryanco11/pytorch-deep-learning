@@ -41,9 +41,18 @@ plt.scatter(x=X[:, 0],
             y=X[:, 1],
             c=y,
             cmap=plt.cm.RdYlBu)
-plt.show()
+# plt.show()
 
 
 ## check input and output shapes
 print(X.shape, y.shape)
 #(1000, 2) (1000,)
+
+# view the first example of feature and labels 
+X_sample = X[0]
+y_sample = y[0]
+
+print(f"values for one sample of X:{X_sample} and the same for y:{y_sample}")
+print(f"shapes for one sample of X:{X_sample.shape} and the same for y:{y_sample.shape}")
+# values for one sample of X:[0.75424625 0.23148074] and the same for y:1
+# shapes for one sample of X:(2,) and the same for y:()

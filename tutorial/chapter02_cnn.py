@@ -79,3 +79,16 @@ print(X[:5], y[:5])
 
 print(type(X), type(y), X.dtype, y.dtype)
 # <class 'torch.Tensor'>,  <class 'torch.Tensor'>,  torch.float32,  torch.float32
+
+
+# split data into training and test sets
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(X,
+                                                    y,
+                                                    test_size=0.2,   # 0.2 = 20% test, 80% train
+                                                    random_state=42)
+
+print(len(X_train), len(X_test), len(y_train), len(y_test))
+#800 200 800 200
+

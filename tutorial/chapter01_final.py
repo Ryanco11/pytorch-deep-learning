@@ -12,6 +12,11 @@ def plot_prediction(train_data=None,
                     test_labels=None,
                     predictions=None):
 
+    train_data = train_data.to("cpu")
+    train_labels = train_labels.to("cpu")
+    test_data = test_data.to("cpu")
+    test_labels = test_labels.to("cpu")
+    predictions = predictions.to("cpu")
 
     plt.figure(figsize=(10, 7))
     plt.scatter(train_data, train_labels, c='b', s=4, label="Training data")
@@ -118,3 +123,14 @@ if __name__ == "__main__":
 
 
     # turn model into evaluation mode
+    model_1.eval()
+
+    # Make predictions on the test data
+    with torch.inference_mode():
+        y_preds = model_1(X_test)
+
+    plot_prediction(train_data=X_train,
+                    train_labels=y_train,
+                    test_data=X_test,
+                    test_labels=y_test,
+                    predictions=y_preds)

@@ -162,3 +162,14 @@ if __name__ == "__main__":
 
     loaded_model_1.to(device)
     print(next(loaded_model_1.parameters()).device)
+
+    # turn model into evaluation mode
+    loaded_model_1.eval()
+    # Make predictions on the test data
+    with torch.inference_mode():
+        y_preds = loaded_model_1(X_test)
+    plot_prediction(train_data=X_train,
+                    train_labels=y_train,
+                    test_data=X_test,
+                    test_labels=y_test,
+                    predictions=y_preds)

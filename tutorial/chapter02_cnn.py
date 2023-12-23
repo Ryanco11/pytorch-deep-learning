@@ -42,3 +42,8 @@ plt.scatter(x=X[:, 0],
             c=y,
             cmap=plt.cm.RdYlBu)
 plt.show()
+
+
+## check input and output shapes
+print(X.shape, y.shape)
+#(1000, 2) (1000,)

@@ -89,7 +89,7 @@ if __name__ == "__main__":
 
     # 2\ optimizer
     optimizer = torch.optim.SGD(params=model_1.parameters(),
-                                lr=0.0001)
+                                lr=0.01)
 
 
     torch.manual_seed(42)

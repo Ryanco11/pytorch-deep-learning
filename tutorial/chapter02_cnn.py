@@ -100,10 +100,11 @@ print(len(X_train), len(X_test), len(y_train), len(y_test))
 import torch
 from torch import nn
 
-device = "cude" if torch.cuda.is_available() else "cpu"
+device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"device: {device}")
 
 
 # construct a model
+
 # define a loss function and optimizer
 # create a training and test loop

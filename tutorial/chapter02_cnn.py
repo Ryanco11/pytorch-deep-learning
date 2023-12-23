@@ -15,6 +15,8 @@ X, y = make_circles(n_samples,
                     random_state=42)
 
 print(len(X), len(y))
+print(f"First 5 samples of X:\n {X[:5]}")
+print(f"First 5 samples of X:\n {y[:5]}")
 # First 5 samples of X:
 #  [[ 0.75424625  0.23148074]
 #  [-0.75615888  0.15325888]
@@ -23,9 +25,6 @@ print(len(X), len(y))
 #  [ 0.44220765 -0.89672343]]
 # First 5 samples of X:
 #  [1 1 1 1 0]
-
-print(f"First 5 samples of X:\n {X[:5]}")
-print(f"First 5 samples of X:\n {y[:5]}")
 
 
 # make dataframe of circle data

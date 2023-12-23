@@ -2,7 +2,7 @@
 
 
 
-# 1/ make classification data and get it ready
+### 1/ make classification data and get it ready
 
 import sklearn
 from sklearn.datasets import make_circles
@@ -92,3 +92,18 @@ X_train, X_test, y_train, y_test = train_test_split(X,
 print(len(X_train), len(X_test), len(y_train), len(y_test))
 #800 200 800 200
 
+
+
+### 2/ building a model
+
+# setup device agonistic code to run cuda
+import torch
+from torch import nn
+
+device = "cude" if torch.cuda.is_available() else "cpu"
+print(f"device: {device}")
+
+
+# construct a model
+# define a loss function and optimizer
+# create a training and test loop

@@ -153,8 +153,12 @@ if __name__ == "__main__":
     print(f"Saved model to : {MODEL_SAVE_PATH}")
 
     # 4\ instantiate the instance
-    loaded_model_0 = LinearRegressionModelV2()
+    loaded_model_1 = LinearRegressionModelV2()
 
-    print(loaded_model_0.state_dict())
+    print(loaded_model_1.state_dict())
     # 5\ load state
-    loaded_model_0.load_state_dict(torch.load(f=MODEL_SAVE_PATH))
+    loaded_model_1.load_state_dict(torch.load(f=MODEL_SAVE_PATH))
+    print(next(loaded_model_1.parameters()).device)
+
+    loaded_model_1.to(device)
+    print(next(loaded_model_1.parameters()).device)

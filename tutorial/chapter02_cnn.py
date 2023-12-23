@@ -56,3 +56,26 @@ print(f"values for one sample of X:{X_sample} and the same for y:{y_sample}")
 print(f"shapes for one sample of X:{X_sample.shape} and the same for y:{y_sample.shape}")
 # values for one sample of X:[0.75424625 0.23148074] and the same for y:1
 # shapes for one sample of X:(2,) and the same for y:()
+
+
+## turn data into tensors and create train and test splits
+# turn data into tensors
+import torch
+print(torch.__version__)
+
+print(type(X), X.dtype)
+# <class 'numpy.ndarray'>,  float64
+
+X = torch.from_numpy(X).type(torch.float)
+y = torch.from_numpy(y).type(torch.float)
+
+print(X[:5], y[:5])
+
+# tensor([[ 0.7542,  0.2315],
+#         [-0.7562,  0.1533],
+#         [-0.8154,  0.1733],
+#         [-0.3937,  0.6929],
+#         [ 0.4422, -0.8967]])   ,    tensor([1., 1., 1., 1., 0.])
+
+print(type(X), type(y), X.dtype, y.dtype)
+# <class 'torch.Tensor'>,  <class 'torch.Tensor'>,  torch.float32,  torch.float32

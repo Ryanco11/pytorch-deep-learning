@@ -6,7 +6,7 @@ import numpy as np
 print(torch.__version__)
 
 
-def plot_prediction(train_data=None,
+def plot_predictions(train_data=None,
                     train_labels=None,
                     test_data=None,
                     test_labels=None,
@@ -54,7 +54,7 @@ if __name__ == "__main__":
     X_test, y_test = X[train_split:], y[train_split:]
 
     # plt
-    # plot_prediction(train_data=X_train,
+    # plot_predictions(train_data=X_train,
                     # train_labels=y_train,
                     # test_data=X_test,
                     # test_labels=y_test,
@@ -129,7 +129,7 @@ if __name__ == "__main__":
     with torch.inference_mode():
         y_preds = model_1(X_test)
 
-    plot_prediction(train_data=X_train,
+    plot_predictions(train_data=X_train,
                     train_labels=y_train,
                     test_data=X_test,
                     test_labels=y_test,
@@ -168,7 +168,7 @@ if __name__ == "__main__":
     # Make predictions on the test data
     with torch.inference_mode():
         y_preds = loaded_model_1(X_test)
-    plot_prediction(train_data=X_train,
+    plot_predictions(train_data=X_train,
                     train_labels=y_train,
                     test_data=X_test,
                     test_labels=y_test,

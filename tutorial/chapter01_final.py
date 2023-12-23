@@ -134,3 +134,27 @@ if __name__ == "__main__":
                     test_data=X_test,
                     test_labels=y_test,
                     predictions=y_preds)
+
+
+    ### save & loading a trained model
+    import pathlib
+
+    # 1\ create path
+    MODEL_PATH = pathlib.Path(pathlib.Path(__file__).parent.resolve()) / "models"
+    MODEL_PATH .mkdir(parents=True, exist_ok=True)
+
+    # 2\ create model save path
+    MODEL_NAME = "chapter01_model_1.pth"
+    MODEL_SAVE_PATH = MODEL_PATH /MODEL_NAME
+
+    # 3\ save the model
+    print(f"Saveing model to : {MODEL_SAVE_PATH}")
+    torch.save(obj=model_1.state_dict(), f=MODEL_SAVE_PATH)
+    print(f"Saved model to : {MODEL_SAVE_PATH}")
+
+    # 4\ instantiate the instance
+    loaded_model_0 = LinearRegressionModelV2()
+
+    print(loaded_model_0.state_dict())
+    # 5\ load state
+    loaded_model_0.load_state_dict(torch.load(f=MODEL_SAVE_PATH))

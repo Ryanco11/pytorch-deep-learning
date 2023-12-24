@@ -128,3 +128,16 @@ print(next(model_0.parameters()).device)
 
 
 # create a training and test loop
+model_0 = nn.Sequential(
+    nn.Linear(in_features=2, out_features=5),
+    nn.Linear(in_features=5, out_features=1)
+).to(device)
+
+print(model_0.state_dict())
+
+with torch.inference_mode():
+    untrained_preds = model_0(X_test.to(device))
+print(f"Length of prediction: {len(untrained_preds)}, Shapes: {untrained_preds.shape}")
+print(f"Length of test samples: {len(X_test)}, Shapes: {X_test.shape}")
+print(f"First 10 of predictions: {untrained_preds[:10]}")
+print(f"First 10 of labels: {y_test[:10]}")

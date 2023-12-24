@@ -141,3 +141,13 @@ print(f"Length of prediction: {len(untrained_preds)}, Shapes: {untrained_preds.s
 print(f"Length of test samples: {len(X_test)}, Shapes: {X_test.shape}")
 print(f"First 10 of predictions: {untrained_preds[:10]}")
 print(f"First 10 of labels: {y_test[:10]}")
+
+
+
+# what loss function you gonna use for each 
+    # regression : MAE \ MSE
+    # classification : binary cross entropy loss function
+
+# optimizer
+    # 
+

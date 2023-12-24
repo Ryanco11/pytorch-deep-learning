@@ -211,3 +211,48 @@ print(torch.eq(y_preds.squeeze(), y_pred_labels.squeeze()))
 
 print(y_preds.squeeze())
 # tensor([1., 1., 0., 1., 1.], device='cuda:0')
+
+
+torch.manual_seed(42)
+torch.cuda.manual_seed(42)
+
+epochs = 100
+
+X_train, y_train = X_train.to(device), y_train.to(device)
+X_test, y_test = X_test.to(device), y_test.to(device)
+
+for epoch in range(epochs):
+
+    # training mode
+    model_0.train()
+
+    # forward pass
+    y_logits = model_0(X_train).squeeze()
+    y_pred = torch.round(torch.sigmoid(y_logits)) 
+
+    # calculate loss/accuracy
+    # loss_fn
+    loss = loss_fn(y_logits,
+                   y_train)
+
+    acc = accuracy_fn(y_true=y_train,
+                      y_pred=y_pred)
+    #
+    optimizer.zero_grad()
+    #
+    loss.backward()
+    #
+    optimizer.step()
+
+    model_0.eval()
+    with torch.inference_mode():
+        test_logits = model_0(X_test).squeeze()
+        test_pred = torch.round(torch.sigmoid(test_logits))
+
+        test_loss = loss_fn(test_logits,
+                            y_test)
+        test_acc = accuracy_fn(y_true=y_test,
+                              y_pred=test_pred)
+
+    if epoch % 10 == 0:
+        print(f"Epoch: {epoch} | Loss: {loss:.5f}, Acc: {acc:0.2f}% | Test loss: {test_loss:.5f}, Test acc: {test_acc:.2f}")

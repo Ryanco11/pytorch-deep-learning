@@ -161,3 +161,10 @@ optimizer = torch.optim.SGD(params=model_0.parameters(),
 print(model_0.state_dict())
 
 
+# calculate accuracy
+def accuracy_fn(y_true, y_pred):
+    correct = torch.eq(y_true, y_pred).sum().item()
+    acc = (correct/len(y_pred)) * 100
+    return acc
+
+    

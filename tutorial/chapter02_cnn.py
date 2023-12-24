@@ -151,3 +151,13 @@ print(f"First 10 of labels: {y_test[:10]}")
 # optimizer
     # 
 
+
+# loss_fn = nn.BCELoss() 
+loss_fn = nn.BCEWithLogitsLoss()
+
+optimizer = torch.optim.SGD(params=model_0.parameters(),
+                            lr=0.1)
+
+print(model_0.state_dict())
+
+

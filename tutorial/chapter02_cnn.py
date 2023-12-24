@@ -167,4 +167,47 @@ def accuracy_fn(y_true, y_pred):
     acc = (correct/len(y_pred)) * 100
     return acc
 
-    
+
+
+### train model
+
+model_0.eval()
+with torch.inference_mode():
+    y_logits = model_0(X_test.to(device))[:5]
+print(y_logits)
+# tensor([[0.5863],
+#         [0.5001],
+#         [0.7513],
+#         [0.5398],
+#         [0.6546]], device='cuda:0')
+
+print(y_test[:5])
+# tensor([1., 0., 1., 0., 1.])
+
+# prediction probailities
+y_pred_probs = torch.sigmoid(y_logits)
+print(y_pred_probs)
+# tensor([[0.4352],
+#         [0.4313],
+#         [0.4675],
+#         [0.4260],
+#         [0.5029]], device='cuda:0')
+
+# predicted label
+y_preds = torch.round(y_pred_probs)
+print(y_preds)
+# tensor([[0.],
+#         [0.],
+#         [0.],
+#         [0.],
+#         [1.]], device='cuda:0')
+
+# logits -> pred probs -> pred labels
+y_pred_labels = torch.round(torch.sigmoid(model_0(X_test.to(device))[:5]))
+
+# check fot equality
+print(torch.eq(y_preds.squeeze(), y_pred_labels.squeeze()))
+# tensor([True, True, True, True, True], device='cuda:0')
+
+print(y_preds.squeeze())
+# tensor([1., 1., 0., 1., 1.], device='cuda:0')

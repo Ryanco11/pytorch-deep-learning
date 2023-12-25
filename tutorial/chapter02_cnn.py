@@ -259,7 +259,7 @@ if __name__ == "__main__":
     torch.manual_seed(42)
     torch.cuda.manual_seed(42)
 
-    epochs = 100
+    epochs = 1000
 
     X_train, y_train = X_train.to(device), y_train.to(device)
     X_test, y_test = X_test.to(device), y_test.to(device)
@@ -309,3 +309,13 @@ if __name__ == "__main__":
     plot_decision_boundary(model_0, X_test, y_test)
 
     plt.show()
+
+    ### improve a model
+
+    # add more layer
+    # add more hidden units
+    # fit for longer
+    # changing the activation function
+    # change the learning rate
+    # change the loss function
+    

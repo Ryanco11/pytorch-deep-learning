@@ -308,14 +308,35 @@ if __name__ == "__main__":
     plt.title("Test")
     plot_decision_boundary(model_0, X_test, y_test)
 
-    plt.show()
+    # plt.show()
 
     ### improve a model
-
     # add more layer
     # add more hidden units
     # fit for longer
     # changing the activation function
     # change the learning rate
     # change the loss function
+
+    class CircleModelV1(nn.Module):
+        def __init__(self):
+            super().__init__()
+            self.layer_1 = nn.Linear(in_features=2, out_features=10)
+            self.layer_2 = nn.Linear(in_features=10, out_features=10)
+            self.layer_3 = nn.Linear(in_features=10, out_features=1)
+        
+        def forward(self, x):
+            z = self.layer_1(x)
+            z = self.layer_2(z)
+            z = self.layer_3(z)
+
+            return z
+
+    model_1 = CircleModelV1().to(device)
     
+    print(model_1)
+# CircleModelV1(
+#   (layer_1): Linear(in_features=2, out_features=10, bias=True)
+#   (layer_2): Linear(in_features=10, out_features=10, bias=True)
+#   (layer_3): Linear(in_features=10, out_features=1, bias=True)
+# )

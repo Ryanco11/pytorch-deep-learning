@@ -335,8 +335,8 @@ if __name__ == "__main__":
     model_1 = CircleModelV1().to(device)
     
     print(model_1)
-# CircleModelV1(
-#   (layer_1): Linear(in_features=2, out_features=10, bias=True)
-#   (layer_2): Linear(in_features=10, out_features=10, bias=True)
-#   (layer_3): Linear(in_features=10, out_features=1, bias=True)
-# )
+    # CircleModelV1(
+    #   (layer_1): Linear(in_features=2, out_features=10, bias=True)
+    #   (layer_2): Linear(in_features=10, out_features=10, bias=True)
+    #   (layer_3): Linear(in_features=10, out_features=1, bias=True)
+    # )

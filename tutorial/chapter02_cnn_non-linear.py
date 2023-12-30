@@ -88,7 +88,7 @@ if __name__ == "__main__":
             self.relu = nn.ReLU()
 
         def forward(self, x):
-            return self.layer_3(self.relu(self.layer_2(self.relu(self.layer_1(X)))))
+            return self.layer_3(self.relu(self.layer_2(self.relu(self.layer_1(x)))))
             # return self.layer_3(self.layer_2(self.layer_1(x))) # x-> layer_1 -> layer_2 -> output
     
 

@@ -3,8 +3,13 @@ import matplotlib.pyplot as plt
 from sklearn.datasets import make_circles
 
 import torch
+from torch import nn
 from sklearn.model_selection import train_test_split
 
+
+# setup device agonistic code to run cuda
+device = "cuda" if torch.cuda.is_available() else "cpu"
+print(f"device: {device}")
 
 if __name__ == "__main__":
 
@@ -28,3 +33,20 @@ if __name__ == "__main__":
                                                         random_state=42)
 
     print(X_train[:5], y_train[:5])
+
+
+    class CircleModelV2(nn.Module):
+        def __init__(self):
+            super().__init__()
+            self.layer_1 = nn.Linear(in_features=2, out_features=10)
+            self.layer_2 = nn.Linear(in_features=10, out_features=10)
+            self.layer_3 = nn.Linear(in_features=10, out_features=10)
+            self.relu = nn.ReLU()
+
+        def forward(self, x):
+            return self.layer_3(self.relu(self.layer_2(self.relu(self.layer_1(X)))))
+    
+
+    model_3 = CircleModelV2().to(device)
+
+    print(model_3)

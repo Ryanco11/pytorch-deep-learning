@@ -111,7 +111,7 @@ if __name__ == "__main__":
     X_train, y_train = X_train.to(device), y_train.to(device)
     X_test, y_test = X_test.to(device), y_test.to(device)
 
-    epochs = 1000
+    epochs = 10000
 
     print(X_train)
     print(y_train)

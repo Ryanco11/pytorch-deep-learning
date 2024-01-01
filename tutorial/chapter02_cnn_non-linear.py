@@ -161,7 +161,7 @@ if __name__ == "__main__":
     plt.figure(figsize=(12, 6))
     plt.subplot(1, 2, 1)
     plt.title("Train")
-    plot_decision_boundary(model_3, X_train, y_train) # model_1 = no non-linearity
+    plot_decision_boundary(model_3, X_train, y_train) # 
     plt.subplot(1, 2, 2)
     plt.title("Test")
     plot_decision_boundary(model_3, X_test, y_test) # model_3 = has non-linearity
